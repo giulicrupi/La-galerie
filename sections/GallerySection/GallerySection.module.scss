@@ -1,63 +1,91 @@
 @import "@/styles/tokens";
 
 .gallery {
-  background: $ink;
-  color: $porcelain;
-  min-height: 100svh;
+  @include section-padding;
+  background: $dark;
+  color: $cream;
   overflow: hidden;
-  position: relative;
+  padding-bottom: 5rem;
 }
 
-.top {
-  left: 50%;
-  max-width: 1180px;
-  padding: 5rem 1rem 0;
-  position: absolute;
-  top: 0;
-  transform: translateX(-50%);
-  width: 100%;
-  z-index: 3;
+.eyebrow {
+  @include eyebrow($champagne);
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.header {
+  margin-bottom: 3rem;
+}
+
+.headerRow {
+  align-items: flex-end;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
 
   h2 {
     font-family: $serif;
-    font-size: clamp(3rem, 7vw, 8rem);
+    font-size: clamp(2.8rem, 6vw, 6.8rem);
     font-weight: 400;
-    line-height: 0.94;
-    margin: 1rem 0 1.6rem;
-    max-width: 820px;
+    line-height: 0.96;
+    margin: 0;
+    max-width: 740px;
   }
 }
 
-.fullscreen,
-.slide {
-  min-height: 100svh;
+.slider {
+  overflow: visible;
+  padding: 0 max(1rem, calc((100vw - 1140px) / 2));
+
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    color: $champagne;
+  }
 }
 
 .slide {
   position: relative;
+}
 
-  &::after {
-    background: linear-gradient(90deg, rgba(25, 23, 20, 0.68), rgba(25, 23, 20, 0.1)), linear-gradient(180deg, rgba(25, 23, 20, 0.48), rgba(25, 23, 20, 0.2));
-    content: "";
-    inset: 0;
-    position: absolute;
+.slideImg {
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(160deg, #2d2920 0%, #3a3328 35%, #4a3f30 65%, #302820 100%);
+  width: 100%;
+}
+
+.slideCaption {
+  background: linear-gradient(0deg, rgba(26, 24, 20, 0.82), transparent);
+  bottom: 0;
+  left: 0;
+  padding: 2rem 1.5rem 1.5rem;
+  position: absolute;
+  right: 0;
+
+  span {
+    color: $champagne;
+    display: block;
+    font-family: $wide;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
   }
 
-  img {
-    object-fit: cover;
+  strong {
+    color: $cream;
+    display: block;
+    font-family: $serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 400;
   }
 }
 
-.caption {
-  bottom: 2rem;
-  color: rgba(247, 242, 234, 0.8);
-  font-size: 0.82rem;
-  font-weight: 800;
-  left: 50%;
-  letter-spacing: 0.18em;
-  position: absolute;
-  text-transform: uppercase;
-  transform: translateX(-50%);
-  width: min(1180px, calc(100% - 2rem));
-  z-index: 3;
+@media (max-width: 767px) {
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

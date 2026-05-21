@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "bootstrap/dist/css/bootstrap-grid.min.css";
 import "swiper/css";
-import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "@/styles/globals.scss";
 
@@ -18,8 +17,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "La Galerie Moema",
-    description:
-      "Um projeto raro em Moema, a poucos minutos do Parque Ibirapuera.",
+    description: "Um projeto raro em Moema, a poucos minutos do Parque Ibirapuera.",
     type: "website",
     locale: "pt_BR"
   }
@@ -27,11 +25,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Saira:wdth,wght@125,300;125,400;125,500;125,600;125,700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

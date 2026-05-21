@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
 import { Button } from "@/components/Button/Button";
 import styles from "./LocationSection.module.scss";
 
@@ -12,7 +11,12 @@ const bullets = [
   "Mobilidade e conveniência"
 ];
 
-const places = ["Parque Ibirapuera", "Metrô Moema", "Shopping Ibirapuera", "Restaurantes do bairro"];
+const places = [
+  { label: "Parque Ibirapuera", dist: "300 m" },
+  { label: "Metrô Moema", dist: "800 m" },
+  { label: "Shopping Ibirapuera", dist: "1,2 km" },
+  { label: "Restaurantes do bairro", dist: "a pé" },
+];
 
 export function LocationSection() {
   return (
@@ -20,7 +24,7 @@ export function LocationSection() {
       <div className="container">
         <div className="row g-5 align-items-end">
           <div className="col-lg-7">
-            <motion.span className="section-kicker" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <motion.span className={styles.eyebrow} initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               Localização
             </motion.span>
             <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
@@ -41,15 +45,19 @@ export function LocationSection() {
             <div className={styles.places}>
               {places.map((place, index) => (
                 <motion.div
-                  key={place}
+                  key={place.label}
                   className={styles.place}
                   initial={{ opacity: 0, y: 22 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.08 }}
                   viewport={{ once: true }}
                 >
-                  <MapPin size={18} strokeWidth={1.5} />
-                  <span>{place}</span>
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                    <circle cx="9" cy="7.5" r="2.5" stroke="currentColor" strokeWidth="1.4" />
+                    <path d="M9 1.5C5.96 1.5 3.5 3.96 3.5 7c0 4 5.5 9.5 5.5 9.5S14.5 11 14.5 7c0-3.04-2.46-5.5-5.5-5.5z" stroke="currentColor" strokeWidth="1.4" fill="none" />
+                  </svg>
+                  <span>{place.label}</span>
+                  <strong>{place.dist}</strong>
                 </motion.div>
               ))}
             </div>

@@ -2,59 +2,44 @@
 
 .button {
   align-items: center;
-  border: 1px solid rgba(201, 173, 120, 0.55);
+  border: 1px solid transparent;
+  border-radius: 0;
+  cursor: pointer;
   display: inline-flex;
-  gap: 0.85rem;
+  font-family: $wide;
+  font-size: 11px;
+  font-weight: 500;
+  gap: 0.85em;
   justify-content: center;
-  min-height: 3.25rem;
-  overflow: hidden;
-  padding: 0 1.45rem;
-  position: relative;
+  letter-spacing: 0.28em;
+  padding: 18px 28px;
   text-transform: uppercase;
-  transition: border-color 0.35s ease, color 0.35s ease, background 0.35s ease;
+  transition: background 240ms ease, color 240ms ease, border-color 240ms ease;
+  white-space: nowrap;
 
-  span {
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    position: relative;
-    z-index: 1;
-  }
-
-  svg {
-    position: relative;
-    transition: transform 0.35s ease;
-    z-index: 1;
-  }
-
-  &::before {
-    background: $champagne;
-    content: "";
-    inset: auto 0 0;
-    height: 0;
-    position: absolute;
-    transition: height 0.35s ease;
-  }
-
-  &:hover {
-    color: $ink;
-
-    &::before {
-      height: 100%;
-    }
-
-    svg {
-      transform: translate(3px, -3px);
-    }
-  }
+  svg { flex-shrink: 0; }
 }
 
-.dark {
-  background: $graphite;
-  color: $porcelain;
+.solid {
+  background: $ink;
+  border-color: $ink;
+  color: $cream;
+
+  &:hover { background: $bronze-dk; border-color: $bronze-dk; color: $cream; }
 }
 
-.light {
-  background: rgba(247, 242, 234, 0.78);
-  color: $graphite;
+.ghost {
+  background: transparent;
+  border-color: $ink;
+  color: $ink;
+
+  &:hover { background: $ink; color: $cream; }
+}
+
+.outlineLight {
+  background: transparent;
+  border-color: rgba(245, 239, 228, 0.4);
+  color: $cream;
+
+  &:hover { background: $cream; border-color: $cream; color: $ink; }
 }
