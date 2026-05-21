@@ -1,0 +1,42 @@
+@import "@/styles/tokens";
+
+.final {
+  @include section-padding;
+  background: $porcelain;
+
+  h2 {
+    font-family: $serif;
+    font-size: clamp(3rem, 6.5vw, 7.2rem);
+    font-weight: 400;
+    line-height: 0.92;
+    margin: 1rem 0 1.2rem;
+  }
+
+  p {
+    color: $warm-gray;
+    font-size: 1.1rem;
+  }
+}
+
+.form {
+  background: $off-white;
+  border: 1px solid $line;
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.2rem, 4vw, 3rem);
+
+  input {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(112, 103, 93, 0.28);
+    color: $graphite;
+    outline: 0;
+    padding: 1.1rem 0;
+  }
+
+  p {
+    font-size: 0.82rem;
+    line-height: 1.7;
+    margin: 0.6rem 0;
+  }
+}

@@ -1,0 +1,77 @@
+@import "@/styles/tokens";
+
+.project {
+  @include section-padding;
+  background: $off-white;
+}
+
+.copy {
+  h2 {
+    font-family: $serif;
+    font-size: clamp(3.4rem, 6vw, 7rem);
+    font-weight: 400;
+    line-height: 0.9;
+    margin: 1rem 0 1.5rem;
+  }
+
+  p {
+    color: $warm-gray;
+    font-size: 1.03rem;
+    line-height: 1.9;
+    margin-bottom: 1.8rem;
+  }
+}
+
+.facts {
+  border-bottom: 1px solid $line;
+  border-top: 1px solid $line;
+  display: grid;
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+  padding: 1.2rem 0;
+
+  span {
+    color: $graphite;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+}
+
+.editorial {
+  min-height: 680px;
+  position: relative;
+}
+
+.imageLarge,
+.imageSmall {
+  overflow: hidden;
+  position: absolute;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.imageLarge {
+  bottom: 0;
+  height: 78%;
+  left: 8%;
+  width: 78%;
+}
+
+.imageSmall {
+  border: 12px solid $off-white;
+  height: 42%;
+  right: 0;
+  top: 0;
+  width: 43%;
+  z-index: 2;
+}
+
+@media (max-width: 991px) {
+  .editorial {
+    min-height: 520px;
+  }
+}

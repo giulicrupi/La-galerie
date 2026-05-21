@@ -1,0 +1,87 @@
+@import "@/styles/tokens";
+
+.plants {
+  @include section-padding;
+  background: $graphite;
+  color: $porcelain;
+  overflow: hidden;
+}
+
+.heading {
+  align-items: end;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr auto;
+  margin-bottom: 3rem;
+
+  h2 {
+    font-family: $serif;
+    font-size: clamp(3rem, 6vw, 6.8rem);
+    font-weight: 400;
+    grid-column: 1 / 2;
+    line-height: 0.96;
+    margin: 0;
+    max-width: 900px;
+  }
+}
+
+.slider {
+  overflow: visible;
+
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    color: $champagne;
+  }
+}
+
+.plant {
+  background: rgba(247, 242, 234, 0.08);
+  border: 1px solid rgba(247, 242, 234, 0.18);
+  min-height: 430px;
+  padding: clamp(1.4rem, 3vw, 2.4rem);
+  transition: background 0.35s ease, transform 0.35s ease;
+
+  &:hover {
+    background: rgba(247, 242, 234, 0.12);
+    transform: translateY(-8px);
+  }
+
+  span {
+    color: $champagne;
+    font-family: $serif;
+    font-size: clamp(3.3rem, 6vw, 5.7rem);
+  }
+
+  h3 {
+    font-size: 0.9rem;
+    letter-spacing: 0.18em;
+    margin: 0.5rem 0 1rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: rgba(247, 242, 234, 0.68);
+    line-height: 1.8;
+    max-width: 320px;
+  }
+}
+
+.planGraphic {
+  border: 1px solid rgba(247, 242, 234, 0.28);
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: 1.4fr 1fr;
+  height: 150px;
+  margin-top: 2.5rem;
+  padding: 0.7rem;
+
+  i {
+    border: 1px solid rgba(201, 173, 120, 0.5);
+  }
+}
+
+@media (max-width: 767px) {
+  .heading {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,27 @@
+$off-white: #f7f2ea;
+$porcelain: #fbf8f2;
+$sand: #d7c6ad;
+$fendi: #b7ab9c;
+$champagne: #c9ad78;
+$wood: #b8946e;
+$warm-gray: #70675d;
+$graphite: #25221f;
+$ink: #191714;
+$line: rgba(112, 103, 93, 0.2);
+$white-alpha: rgba(255, 255, 255, 0.72);
+
+$serif: var(--font-serif);
+$sans: var(--font-sans);
+
+@mixin eyebrow {
+  color: $champagne;
+  font-family: $sans;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+@mixin section-padding {
+  padding: clamp(5rem, 9vw, 9rem) 0;
+}
