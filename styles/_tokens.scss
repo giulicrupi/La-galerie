@@ -1,27 +1,33 @@
-$off-white: #f7f2ea;
-$porcelain: #fbf8f2;
-$sand: #d7c6ad;
-$fendi: #b7ab9c;
-$champagne: #c9ad78;
-$wood: #b8946e;
-$warm-gray: #70675d;
-$graphite: #25221f;
-$ink: #191714;
-$line: rgba(112, 103, 93, 0.2);
-$white-alpha: rgba(255, 255, 255, 0.72);
+// ── Palette ──────────────────────────────────────────────────────────────────
+$cream:      #f5efe4;
+$paper:      #ebe2d0;
+$paper-deep: #ddd0b6;
+$champagne:  #c9b88f;
+$bronze:     #a48052;
+$bronze-dk:  #6f5230;
+$stone:      #6b6359;
+$line:       rgba(28, 26, 22, 0.14);
+$line-soft:  rgba(28, 26, 22, 0.07);
+$ink:        #1c1a16;
+$ink-soft:   #2a2620;
+$dark:       #1a1814;
+$dark-warm:  #221f1a;
+$dark-soft:  #2d2920;
 
+// ── Typography ───────────────────────────────────────────────────────────────
 $serif: var(--font-serif);
-$sans: var(--font-sans);
+$wide:  var(--font-wide);
 
-@mixin eyebrow {
-  color: $champagne;
-  font-family: $sans;
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
+// ── Helpers ──────────────────────────────────────────────────────────────────
+@mixin eyebrow($color: $bronze) {
+  color: $color;
+  font-family: $wide;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
 }
 
 @mixin section-padding {
-  padding: clamp(5rem, 9vw, 9rem) 0;
+  padding: clamp(80px, 9vw, 140px) 0;
 }

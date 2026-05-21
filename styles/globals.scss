@@ -1,15 +1,10 @@
 @import "./tokens";
 
-@font-face {
-  font-family: "Galerie Serif";
-  src: local("Georgia");
-  font-display: swap;
-}
-
 :root {
-  --font-serif: "Galerie Serif", "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
-  --header-height: 82px;
+  --font-serif: "Cormorant Garamond", "Cormorant", Georgia, serif;
+  --font-wide:  "acumin-pro-wide", "Saira", "Saira Semi Condensed", "Helvetica Neue", Arial, sans-serif;
+  --header-height: 64px;
+  font-variation-settings: "wdth" 125;
   color-scheme: light;
 }
 
@@ -22,12 +17,17 @@ html {
 }
 
 body {
-  background: $off-white;
-  color: $graphite;
-  font-family: $sans;
+  background: $cream;
+  color: $ink;
+  font-family: $wide;
+  font-variation-settings: "wdth" 115;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
   margin: 0;
   overflow-x: hidden;
-  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -36,7 +36,9 @@ a {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
 }
 
@@ -50,6 +52,38 @@ img {
   color: $ink;
 }
 
-.section-kicker {
+// ── Shared typography helpers ────────────────────────────────────────────────
+.lg-eyebrow {
   @include eyebrow;
+  display: inline-block;
+  padding-bottom: 0.9em;
 }
+.lg-eyebrow--dark  { color: $bronze-dk; }
+.lg-eyebrow--light { color: $champagne; }
+
+.lg-h2 {
+  font-family: $serif;
+  font-weight: 300;
+  font-size: clamp(30px, 4.2vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.005em;
+  color: $ink;
+  margin: 0;
+
+  em {
+    font-style: italic;
+    font-weight: 300;
+    color: $bronze;
+  }
+}
+.lg-h2--light       { color: $cream; }
+.lg-h2--light em    { color: $champagne; }
+
+.lg-lede {
+  font-size: clamp(15px, 1.05vw, 17px);
+  line-height: 1.55;
+  color: $stone;
+  margin: 0;
+  max-width: 44ch;
+}
+.lg-lede--light { color: rgba(245, 239, 228, 0.78); }

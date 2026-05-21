@@ -2,86 +2,145 @@
 
 .plants {
   @include section-padding;
-  background: $graphite;
-  color: $porcelain;
+  background: $cream;
+  color: $ink;
   overflow: hidden;
+  padding-bottom: 0;
+}
+
+.eyebrow {
+  @include eyebrow;
+  display: inline-block;
+  margin-bottom: 0.8rem;
 }
 
 .heading {
-  align-items: end;
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: 1fr auto;
-  margin-bottom: 3rem;
+  align-items: flex-end;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+  padding-bottom: 2rem;
 
   h2 {
     font-family: $serif;
-    font-size: clamp(3rem, 6vw, 6.8rem);
+    font-size: clamp(2.8rem, 5.5vw, 6rem);
     font-weight: 400;
-    grid-column: 1 / 2;
     line-height: 0.96;
     margin: 0;
-    max-width: 900px;
+    max-width: 720px;
   }
 }
 
 .slider {
   overflow: visible;
+  padding: 0 max(1.5rem, calc((100vw - 1140px) / 2)) 5rem;
 
   :global(.swiper-button-next),
   :global(.swiper-button-prev) {
-    color: $champagne;
+    color: $bronze;
   }
 }
 
 .plant {
-  background: rgba(247, 242, 234, 0.08);
-  border: 1px solid rgba(247, 242, 234, 0.18);
-  min-height: 430px;
-  padding: clamp(1.4rem, 3vw, 2.4rem);
-  transition: background 0.35s ease, transform 0.35s ease;
+  background: $paper;
+  border: 1px solid $line;
+  display: flex;
+  flex-direction: column;
+  min-height: 520px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 
   &:hover {
-    background: rgba(247, 242, 234, 0.12);
-    transform: translateY(-8px);
-  }
-
-  span {
-    color: $champagne;
-    font-family: $serif;
-    font-size: clamp(3.3rem, 6vw, 5.7rem);
-  }
-
-  h3 {
-    font-size: 0.9rem;
-    letter-spacing: 0.18em;
-    margin: 0.5rem 0 1rem;
-    text-transform: uppercase;
-  }
-
-  p {
-    color: rgba(247, 242, 234, 0.68);
-    line-height: 1.8;
-    max-width: 320px;
+    box-shadow: 0 24px 48px -8px rgba(28, 26, 22, 0.15);
+    transform: translateY(-6px);
   }
 }
 
+.planMedia {
+  border-bottom: 1px solid $line;
+  flex-shrink: 0;
+  padding: 1.5rem;
+}
+
 .planGraphic {
-  border: 1px solid rgba(247, 242, 234, 0.28);
+  border: 1px solid $line;
   display: grid;
-  gap: 0.65rem;
+  gap: 8px;
   grid-template-columns: 1.4fr 1fr;
-  height: 150px;
-  margin-top: 2.5rem;
-  padding: 0.7rem;
+  height: 180px;
+  padding: 8px;
 
   i {
-    border: 1px solid rgba(201, 173, 120, 0.5);
+    background: rgba(201, 184, 143, 0.2);
+    border: 1px solid rgba(164, 128, 82, 0.3);
+  }
+}
+
+.plantInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.area {
+  color: $bronze;
+  display: block;
+  font-family: $serif;
+  font-size: clamp(3rem, 5.5vw, 4.8rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.plant h3 {
+  color: $stone;
+  font-family: $wide;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  margin: 0 0 0.8rem;
+  text-transform: uppercase;
+}
+
+.plant p {
+  color: $stone;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin: 0 0 1.5rem;
+}
+
+.specTable {
+  border-top: 1px solid $line;
+  list-style: none;
+  margin: auto 0 0;
+  padding: 0;
+
+  li {
+    border-bottom: 1px solid $line;
+    display: flex;
+    font-family: $wide;
+    font-size: 0.7rem;
+    font-weight: 400;
+    justify-content: space-between;
+    letter-spacing: 0.12em;
+    padding: 0.65rem 0;
+    text-transform: uppercase;
+
+    span { color: $stone; }
+    strong { color: $ink; font-weight: 500; }
   }
 }
 
 @media (max-width: 767px) {
   .heading {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .slider {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

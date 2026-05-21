@@ -2,76 +2,119 @@
 
 .project {
   @include section-padding;
-  background: $off-white;
+  background: $dark;
+  color: $cream;
+}
+
+.eyebrow {
+  @include eyebrow($champagne);
+  display: inline-block;
+  margin-bottom: 1.2rem;
 }
 
 .copy {
   h2 {
     font-family: $serif;
-    font-size: clamp(3.4rem, 6vw, 7rem);
+    font-size: clamp(3rem, 5.5vw, 6.4rem);
     font-weight: 400;
-    line-height: 0.9;
-    margin: 1rem 0 1.5rem;
+    line-height: 0.92;
+    margin: 0 0 1.5rem;
   }
 
   p {
-    color: $warm-gray;
-    font-size: 1.03rem;
+    color: rgba(245, 239, 228, 0.7);
+    font-size: 1.05rem;
     line-height: 1.9;
-    margin-bottom: 1.8rem;
+    margin-bottom: 2rem;
+    max-width: 48ch;
   }
 }
 
-.facts {
-  border-bottom: 1px solid $line;
-  border-top: 1px solid $line;
-  display: grid;
-  gap: 0.7rem;
-  margin-bottom: 2rem;
-  padding: 1.2rem 0;
-
-  span {
-    color: $graphite;
-    font-size: 0.78rem;
-    font-weight: 900;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-}
-
-.editorial {
-  min-height: 680px;
+.imgWrap {
+  min-height: 580px;
   position: relative;
 }
 
-.imageLarge,
-.imageSmall {
-  overflow: hidden;
-  position: absolute;
-
-  img {
-    object-fit: cover;
-  }
-}
-
-.imageLarge {
+.imgPlaceholder {
+  background: linear-gradient(135deg, #2d2920 0%, #3a3328 40%, #4a3f30 70%, #2d2920 100%);
   bottom: 0;
-  height: 78%;
-  left: 8%;
-  width: 78%;
+  left: 0;
+  position: absolute;
+  right: 10%;
+  top: 8%;
 }
 
-.imageSmall {
-  border: 12px solid $off-white;
+.imgAccent {
+  background: linear-gradient(135deg, $bronze-dk, $bronze);
+  border: 10px solid $dark;
   height: 42%;
+  position: absolute;
   right: 0;
   top: 0;
-  width: 43%;
+  width: 42%;
   z-index: 2;
 }
 
+.features {
+  display: grid;
+  gap: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.feature {
+  border-top: 1px solid rgba(245, 239, 228, 0.1);
+  display: flex;
+  gap: 1.5rem;
+  padding-top: 1.2rem;
+
+  strong {
+    color: $cream;
+    display: block;
+    font-family: $wide;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: rgba(245, 239, 228, 0.58);
+    font-size: 0.9rem;
+    line-height: 1.75;
+    margin: 0;
+  }
+}
+
+.featureN {
+  color: $bronze;
+  flex-shrink: 0;
+  font-family: $serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 1;
+  opacity: 0.7;
+}
+
+.strip {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 5rem;
+}
+
+.stripItem {
+  aspect-ratio: 1 / 1.15;
+  background: linear-gradient(160deg, rgba(164, 128, 82, 0.22), rgba(111, 82, 48, 0.35));
+  border: 1px solid rgba(245, 239, 228, 0.08);
+}
+
 @media (max-width: 991px) {
-  .editorial {
-    min-height: 520px;
+  .imgWrap {
+    min-height: 420px;
+  }
+
+  .strip {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

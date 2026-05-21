@@ -13,7 +13,7 @@ export function HeroSection() {
     <section className={styles.hero} id="top">
       <motion.div className={styles.media} style={{ y: imageY }}>
         <Image
-          src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2200&q=88"
+          src="/assets/hero-living.jpeg"
           alt="Living amplo com arquitetura contemporânea"
           fill
           priority
@@ -22,7 +22,6 @@ export function HeroSection() {
       </motion.div>
 
       <div className={styles.overlay} />
-      <div className={styles.organicTop} />
       <div className={styles.pattern} aria-hidden="true" />
 
       <div className="container">
@@ -33,7 +32,7 @@ export function HeroSection() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className={styles.brand}
           >
-            <span>LA</span>
+            <span>La</span>
             <strong>GALERIE</strong>
           </motion.div>
 
@@ -44,9 +43,12 @@ export function HeroSection() {
             transition={{ duration: 0.9, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className={styles.launch}>Lançamento</span>
-            <h1>Um projeto raro em Moema, a poucos minutos do Parque Ibirapuera.</h1>
+            <h1>
+              Um projeto raro <em>em Moema,</em>{" "}
+              a poucos minutos do Parque Ibirapuera.
+            </h1>
             <p>Arquitetura contemporânea, plantas amplas em um terreno com 3 frentes</p>
-            <Button tone="light">Falar com consultor</Button>
+            <Button tone="outlineLight">Falar com consultor</Button>
           </motion.div>
 
           <motion.div
@@ -54,8 +56,17 @@ export function HeroSection() {
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
+            aria-hidden="true"
           >
-            Fora da rota de aviões
+            <svg viewBox="0 0 120 120" width="120" height="120">
+              <defs>
+                <path id="sealCircle" d="M60,60 m-37,0 a37,37 0 1,1 74,0 a37,37 0 1,1 -74,0" />
+              </defs>
+              <text fontSize="10" letterSpacing="3.8" fill="rgba(245,239,228,0.9)" fontFamily="inherit" fontWeight="500">
+                <textPath href="#sealCircle">FORA DA ROTA DE AVIÕES · MOEMA ·</textPath>
+              </text>
+              <circle cx="60" cy="60" r="6" fill="rgba(245,239,228,0.9)" />
+            </svg>
           </motion.div>
 
           <motion.div
